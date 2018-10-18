@@ -17,7 +17,7 @@
 
   void setup() {
     //int n = in.nextInt();
-    n = 8;
+    n = 3;
     frameRate(n);
     size(900, 400);
     
@@ -57,8 +57,12 @@
   
   void draw(){
     background(0);
+    
     Bundle currentBundle = game.getLLN();
-    game.setNewPrices(currentBundle, sellers, k);
+    if (buyer.getUtility(currentBundle) >0){
+      game.setNewPrices(currentBundle, sellers, k);
+    }
+    
     //System.out.println("--------- best huristic bundle ----------");
     //System.out.println(currentBundle.getTheBundle());
     //System.out.println("Utility of best huristic bundle is = " + buyer.getUtility(currentBundle));
@@ -78,7 +82,7 @@
       ellipse(x, y, w, h);
       fill(255);
       text("Price:" + sl.getPrice(), x-25, 100 - sl.getPrice() * 8);  // Draw text on baseline
-      text("Subm Val:", x - 25, 200);
+      text("Item: " + (i - 1), x - 25, 200);
     }
     text("Buyers Utility :" + buyer.getUtility(currentBundle), 30, 30);
     

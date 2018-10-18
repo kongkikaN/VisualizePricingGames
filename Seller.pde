@@ -5,7 +5,7 @@ class Seller {
   
    Seller(int id, int price) {
     this.id = id;
-    this.price = setRandomPrice();
+    this.price = setAllZero();
   }
   
    int setAllZero(){
